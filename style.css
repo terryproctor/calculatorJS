@@ -7,7 +7,7 @@ body {
 
 .calculator {
     padding: 10px 10px 5px;
-    width: 380px;
+    width: 340px;
     height: 400px;
     background-color: rgb(85, 85, 85);
     z-index: 1;
