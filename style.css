@@ -7,33 +7,40 @@ body {
 
 .calculator {
     padding: 10px 10px 5px;
-    width: 340px;
-    height: 400px;
+    width: 720px;
+    height: 760px;
     background-color: rgb(85, 85, 85);
     z-index: 1;
     border-radius: 10px;
     border: 1px solid;
-    margin: 20vh auto;
+    margin: 5vh auto;
 }
 
 .displayContainer {
     margin-top: 5px;
     border: 1px solid rgb(70, 70, 70);
     border-radius: 10px;
+    display: flex;
+    overflow: none;
 }
 
 .display {
-    height: 65px;
-    width: 95%;
+    height: 150px;
+    width: 92%;
     background-color: rgb(127, 185, 142);
     border-radius: 5px;
     padding: 2px;
     margin: 15px auto;
     color:rgb(30, 10, 50);
-    font-family: 'Orbitron', sans-serif;;
-    font-size: 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 60px;
     border: 1px solid;
     border-top: 2px solid;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
 }
 
 .buttonContainer {
@@ -41,13 +48,16 @@ body {
 }
 
 button {
-    height: 65px;
-    width: 60px;
-    font-size: 20px;
+    height: 135px;
+    width: 135px;
+    font-size: 44px;
     border-radius: 20%;
     cursor: pointer;
     background-color: rgb(20, 20, 20);
     color: white;
+    outline: none;
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .number {
@@ -58,3 +68,8 @@ button {
 .reset {
     background-color: rgb(255, 60, 80)
 }
+
+.dot {
+    font-weight: 1000;
+}
+
