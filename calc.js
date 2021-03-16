@@ -31,19 +31,26 @@ operate = (a, operator, b) => {
 //get elements
 let display = document.getElementsByClassName('display')[0];
 let numbers = document.getElementsByClassName('number');
+let displayText = "";
 
 //adding texg to display
 let addText = (e) => {
     let text = e.target.textContent; 
     display.textContent += text;
+    displayText += text;
 };
+
+//clear display
+
+let clearDisplay = () => display.textContent = "";
 
 //adding event listeners to display
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener('click', function(e) {
         addText(e);
     }, false)
-}
+};
 
-let test = (display.textContent);
-console.log(test);
+//ac button to clear display
+let clear = document.getElementsByClassName('reset clear')[0];
+clear.addEventListener('click', clearDisplay);
