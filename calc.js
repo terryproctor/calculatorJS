@@ -4,7 +4,8 @@ subtract = (a,b) => a - b;
 multiply = (a,b) => a * b;
 divide = (a,b) => {
     if (b === 0) {
-        return "Can't divide by 0!"
+        alert("Can't divide by 0!");
+        return "Can't divide by 0!";
     } else {
         return a / b;
     }
@@ -31,33 +32,33 @@ operate = (a, operator, b) => {
 let display = document.getElementsByClassName('display')[0];
 let numbers = document.getElementsByClassName('number');
 
-let formula = "";
+let formula = [];
 
 //adding text to display
 let addText = (e) => {
     let text = e.target.textContent; 
     display.textContent += text;
-    formula += text;
     console.log(formula);
+    
 };
 
 //add operators
 let addOperator = (e) => {
+    formula.push(display.textContent);
     let text = e.target.textContent;
 // change multiply and divide to code compatible 
     if (text === "x") {text = "*";};
     if (text === "÷") {text = "/";};
 
-    formula += ` ${text} `;
+    formula.push(text);
     display.textContent = "";
     console.log(formula);
 };
 
 //clear display
-
-let clearDisplay = () => {
+let clearAll = () => {
     display.textContent = "";
-    formula = "";
+    formula = [];
 };
 
 //adding event listeners to display
@@ -69,7 +70,7 @@ for (let i = 0; i < numbers.length; i++) {
 
 //ac button to clear display
 let clear = document.getElementsByClassName('reset clear')[0];
-clear.addEventListener('click', clearDisplay);
+clear.addEventListener('click', clearAll);
 
 //operators get Element and add event listener
 let operators = document.getElementsByClassName('operator');
@@ -78,3 +79,10 @@ for (let i = 0; i < operators.length; i++) {
         addOperator(e);
     }, false)
 };
+
+let negative = document.getElementsByClassName('negative')[0];
+console.log(negative);
+negative.addEventListener('click', function() {
+    display.textContent = `${-Number(display.textContent)}`
+}, false);
+
