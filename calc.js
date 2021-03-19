@@ -61,6 +61,19 @@ let clearAll = () => {
     formula = [];
 };
 
+let evaluate = () => {
+    formula.push(display.textContent);
+    let a = Number(formula[0]);
+    let operator = formula[1];
+    let b = Number(formula[2]);
+    let result = operate(a, operator, b);
+    console.log(result);
+    display.textContent = result;
+    formula = [];
+    return result;
+
+};
+
 //adding event listeners to display
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener('click', function(e) {
@@ -81,8 +94,11 @@ for (let i = 0; i < operators.length; i++) {
 };
 
 let negative = document.getElementsByClassName('negative')[0];
-console.log(negative);
+// +/- functionality
 negative.addEventListener('click', function() {
     display.textContent = `${-Number(display.textContent)}`
 }, false);
+
+let equals = document.getElementsByClassName('equals')[0];
+equals.addEventListener('click', evaluate);
 
