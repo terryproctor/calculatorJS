@@ -31,6 +31,10 @@ operate = (a, operator, b) => {
 //get elements
 let display = document.getElementsByClassName('display')[0];
 let numbers = document.getElementsByClassName('number');
+let clear = document.getElementsByClassName('reset clear')[0];
+let operators = document.getElementsByClassName('operator');
+let negative = document.getElementsByClassName('negative')[0];
+let equals = document.getElementsByClassName('equals')[0];
 
 let formula = [];
 
@@ -53,6 +57,7 @@ let addOperator = (e) => {
     formula.push(text);
     display.textContent = "";
     console.log(formula);
+    
 };
 
 //clear display
@@ -82,23 +87,19 @@ for (let i = 0; i < numbers.length; i++) {
 };
 
 //ac button to clear display
-let clear = document.getElementsByClassName('reset clear')[0];
 clear.addEventListener('click', clearAll);
 
 //operators get Element and add event listener
-let operators = document.getElementsByClassName('operator');
 for (let i = 0; i < operators.length; i++) {
     operators[i].addEventListener('click', function(e) {
         addOperator(e);
     }, false)
 };
 
-let negative = document.getElementsByClassName('negative')[0];
 // +/- functionality
 negative.addEventListener('click', function() {
     display.textContent = `${-Number(display.textContent)}`
 }, false);
 
-let equals = document.getElementsByClassName('equals')[0];
 equals.addEventListener('click', evaluate);
 
