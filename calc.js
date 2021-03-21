@@ -31,10 +31,11 @@ operate = (a, operator, b) => {
 //get elements
 let display = document.getElementsByClassName('display')[0];
 let numbers = document.getElementsByClassName('number');
-let clear = document.getElementsByClassName('reset clear')[0];
+let AC = document.getElementsByClassName('reset clear')[0];
 let operators = document.getElementsByClassName('operator');
 let negative = document.getElementsByClassName('negative')[0];
 let equals = document.getElementsByClassName('equals')[0];
+let backspace = document.getElementsByClassName("reset backspace")[0];
 
 let formula = [];
 
@@ -42,7 +43,7 @@ let formula = [];
 let addText = (e) => {
     let text = e.target.textContent; 
     display.textContent += text;
-    console.log(formula);
+    return display.textContent;
     
 };
 
@@ -87,7 +88,7 @@ for (let i = 0; i < numbers.length; i++) {
 };
 
 //ac button to clear display
-clear.addEventListener('click', clearAll);
+AC.addEventListener('click', clearAll);
 
 //operators get Element and add event listener
 for (let i = 0; i < operators.length; i++) {
