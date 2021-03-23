@@ -80,3 +80,7 @@ button {
 .equal {
     background-color: rgb(250, 105, 0)
 }
+
+.exp {
+    visibility:hidden;
+}
