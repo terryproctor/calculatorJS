@@ -1,5 +1,5 @@
 // operator functions
-add = (a,b) => a + b;
+add = (a,b) => (a + b);
 subtract = (a,b) => a - b;
 multiply = (a,b) => a * b;
 divide = (a,b) => {
@@ -7,24 +7,24 @@ divide = (a,b) => {
         alert("Can't divide by 0!");
         return "Can't divide by 0!";
     } else {
-        return a / b;
+        return (a / b);
     }
 };
 
-//operator functions wrapper
+//operator functions wrapper, slice to avoid float point errors
 operate = (a, operator, b) => {
     switch (operator) {
         case "+":
-            return add(a,b);
+            return String(add(a,b)).slice(0,10);
     
         case "-":
-            return subtract(a,b);
+            return String(subtract(a,b)).slice(0,10);
         
         case "*":
-            return multiply(a,b);
+            return String(multiply(a,b)).slice(0,10);
 
         case "/":
-            return divide(a,b);
+            return String(divide(a,b)).slice(0,10);
     }
 };
 
@@ -72,18 +72,25 @@ keys.addEventListener('click', (e) => {
     } else if (formula.operand1){
       formula.operand2 = display.textContent;
       display.textContent = String(target.textContent);
-    }
+    } 
     formula.operator = target.dataset.value;
     console.log(formula);
   }
 
   if(target.className === "equal") {
+    // only run if have a operator b, and operator is not on screen 
+    if (formula.operand1 && formula.operator && 
+      !isNaN(display.textContent)) {
+    // push to operand2
     formula.operand2 = display.textContent;
+    
     display.textContent = formula.result = 
     //work out fomula display it and store result
     operate(Number(formula.operand1), formula.operator, Number(formula.operand2));
+    
     // reset formula
     formula.operand1 = formula.operator = formula.operand2 = null;
+    }
   }
 
   // -/+ key
@@ -98,7 +105,7 @@ keys.addEventListener('click', (e) => {
 
   //AC key
   if (target.dataset.value === 'allClear') {
-    display.textContent =  "";
+    display.textContent =  "0";
     //set all keys in formula to null (reset)
     Object.keys(formula).forEach(key => formula[key] = null);
     };
