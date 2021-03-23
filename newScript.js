@@ -73,6 +73,15 @@ keys.addEventListener('click', (e) => {
       formula.operand2 = display.textContent;
       display.textContent = String(target.textContent);
     } 
+    
+    if (formula.operand1 && formula.operator && formula.operand2)
+      { 
+        display.textContent = formula.result = 
+        //work out fomula display it and store result
+        operate(Number(formula.operand1), formula.operator, 
+        Number(formula.operand2));
+        formula.operand1 = formula.result;
+      }
     formula.operator = target.dataset.value;
     console.log(formula);
   }
