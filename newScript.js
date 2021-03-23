@@ -47,7 +47,8 @@ keys.addEventListener('click', (e) => {
 
   //number keys
   if (target.className === 'number') {
-    if (display.textContent === '0') {
+    if (display.textContent === '0' || isNaN(display.textContent)
+        || display.textContent === String(formula.result)) {
       //new number
       display.textContent = target.dataset.value;
     } else {
@@ -67,10 +68,10 @@ keys.addEventListener('click', (e) => {
   if (target.className === "operator") {
     if (formula.operand1 === null) {
       formula.operand1 = display.textContent;
-      display.textContent = '';
+      display.textContent = String(target.textContent);
     } else if (formula.operand1){
       formula.operand2 = display.textContent;
-      display.textContent = '';
+      display.textContent = String(target.textContent);
     }
     formula.operator = target.dataset.value;
     console.log(formula);
@@ -78,7 +79,7 @@ keys.addEventListener('click', (e) => {
 
   if(target.className === "equal") {
     formula.operand2 = display.textContent;
-    formula.result = display.textContent = 
+    display.textContent = formula.result = 
     //work out fomula display it and store result
     operate(Number(formula.operand1), formula.operator, Number(formula.operand2));
     // reset formula
