@@ -74,6 +74,7 @@ keys.addEventListener('click', (e) => {
       display.textContent = String(target.textContent);
     } 
     
+    // multiple operators scenario
     if (formula.operand1 && formula.operator && formula.operand2)
       { 
         display.textContent = formula.result = 
@@ -82,6 +83,8 @@ keys.addEventListener('click', (e) => {
         Number(formula.operand2));
         formula.operand1 = formula.result;
       }
+    
+    //add operator
     formula.operator = target.dataset.value;
     console.log(formula);
   }
