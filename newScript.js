@@ -5,7 +5,7 @@ multiply = (a,b) => a * b;
 divide = (a,b) => {
     if (b === 0) {
         alert("Can't divide by 0!");
-        display.textContent = "0";
+        return "0";
     } else {
         return (a / b);
     }
