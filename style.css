@@ -43,7 +43,7 @@ body {
     overflow: hidden;
 }
 
-.buttonContainer {
+.keys {
     margin: 10px;
 }
 
@@ -73,3 +73,10 @@ button {
     font-weight: 1000;
 }
 
+.operator {
+    background-color: rgb(30, 30, 30)
+}
+
+.equal {
+    background-color: rgb(250, 105, 0)
+}

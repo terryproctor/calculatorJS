@@ -8,34 +8,33 @@
     <body>
         <div class = "container">
             <div class = "calculator">
-                <div class = "displayContainer">
-                    <div class = "display"></div> <!-- screen display-->
-                </div>
-                <div class = "buttonContainer">
-                    <button class = "number">7</button>
-                    <button class = "number">8</button>
-                    <button class = "number">9</button>
-                    <button class = "reset backspace">C</button>
-                    <button class = "reset clear">AC</button>
-                    <button class = "number">4</button>
-                    <button class = "number">5</button>
-                    <button class = "number">6</button>
-                    <button class = "operator multiply">x</button>
-                    <button class = "operator divide">&#247</button> <!-- divide button-->
-                    <button class = "number">1</button>
-                    <button class = "number">2</button>
-                    <button class = "number">3</button>
-                    <button class = "operator plus">+</button>
-                    <button class = "operator minus">-</button>
-                    <button class = "number">0</button>
-                    <button class = "number dot">.</button>
-                    <button class = "base10">Exp</button>
-                    <button class = "equals">=</button>
-                    <button class = "negative">+/-</button>
-                
+
+                <div class = "display">0</div> <!-- screen display-->
+       
+                <div class = "keys">
+                    <button class = "number" data-value = "7">7</button>
+                    <button class = "number" data-value = "8">8</button>
+                    <button class = "number" data-value = "9">9</button>
+                    <button class = "reset" data-value = "clear">C</button>
+                    <button class = "reset" data-value = "allClear">AC</button>
+                    <button class = "number" data-value = "4">4</button>
+                    <button class = "number" data-value = "5">5</button>
+                    <button class = "number" data-value = "6">6</button>
+                    <button class = "operator" data-value = "*">&times</button>
+                    <button class = "operator" data-value = "/">&#247</button> <!-- divide button-->
+                    <button class = "number" data-value = "1">1</button>
+                    <button class = "number" data-value = "2">2</button>
+                    <button class = "number" data-value = "3">3</button>
+                    <button class = "operator" data-value = "+">+</button>
+                    <button class = "operator" data-value = "-">-</button>
+                    <button class = "number" data-value = "0">0</button>
+                    <button class = "decimal" data-value = ".">.</button>
+                    <button class = "operator" data-value = "exp">Exp</button>
+                    <button class = "equal" data-value = "=">=</button>
+                    <button class = "neg" data-value = "neg">+/-</button>
                 </div>
             </div>
         </div>
     </body>
-<script src="calc.js"></script>
+<script src="newScript.js"></script>
 </html>
