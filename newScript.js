@@ -77,10 +77,13 @@ keys.addEventListener('click', (e) => {
     // multiple operators scenario
     if (formula.operand1 && formula.operator && formula.operand2)
       { 
-        display.textContent = formula.result = 
+        formula.result = 
         //work out fomula display it and store result
         operate(Number(formula.operand1), formula.operator, 
         Number(formula.operand2));
+
+        display.textContent = String(formula.result);
+
         formula.operand1 = formula.result;
       }
     
@@ -96,10 +99,12 @@ keys.addEventListener('click', (e) => {
     // push to operand2
     formula.operand2 = display.textContent;
     
-    display.textContent = formula.result = 
+    formula.result = 
     //work out fomula display it and store result
     operate(Number(formula.operand1), formula.operator, Number(formula.operand2));
     
+    display.textContent = String(formula.result)
+
     // reset formula
     formula.operand1 = formula.operator = formula.operand2 = null;
     }
@@ -126,3 +131,5 @@ keys.addEventListener('click', (e) => {
 });
 
 //need to add exp functionality
+
+// still some floating point errors
