@@ -1,13 +1,13 @@
 // operator functions
-add = (a,b) => (a + b);
-subtract = (a,b) => a - b;
-multiply = (a,b) => a * b;
+add = (a,b) => parseFloat(a + b);
+subtract = (a,b) => parseFloat(a - b);
+multiply = (a,b) => parseFloat(a * b);
 divide = (a,b) => {
     if (b === 0) {
         alert("Can't divide by 0!");
         return "0";
     } else {
-        return (a / b);
+        return parseFloat(a / b);
     }
 };
 
@@ -15,16 +15,16 @@ divide = (a,b) => {
 operate = (a, operator, b) => {
     switch (operator) {
         case "+":
-            return String(add(a,b)).slice(0,10);
+            return String(add(a,b)).slice(0,13);
     
         case "-":
-            return String(subtract(a,b)).slice(0,10);
+            return String(subtract(a,b)).slice(0,13);
         
         case "*":
-            return String(multiply(a,b)).slice(0,10);
+            return String(multiply(a,b)).slice(0,13);
 
         case "/":
-            return String(divide(a,b)).slice(0,10);
+            return String(divide(a,b)).slice(0,13);
     }
 };
 
