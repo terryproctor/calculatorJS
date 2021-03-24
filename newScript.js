@@ -115,8 +115,8 @@ keys.addEventListener('click', (e) => {
     display.textContent = `${-Number(display.textContent)}`
   }
 
-  //C key
-  if (target.dataset.value === 'clear') {
+  //DEL key
+  if (target.dataset.value === 'clear' && display.textContent !== String(formula.result)) {
     display.textContent =  display.textContent.slice(0, -1);
   }
 
@@ -132,4 +132,4 @@ keys.addEventListener('click', (e) => {
 
 //need to add exp functionality
 
-// still some floating point errors
+
