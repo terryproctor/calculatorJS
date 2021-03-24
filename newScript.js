@@ -133,4 +133,4 @@ keys.addEventListener('click', (e) => {
 
 //need to add exp functionality
 
-
+// need to test more floating formulas
