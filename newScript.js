@@ -76,6 +76,8 @@ keys.addEventListener('click', (e) => {
         display.textContent = String(formula.result);
         formula.operand1 = formula.result;
         
+      } else if (formula.operand1 && formula.operator) {
+        display.textContent = String(target.textContent)
       } else if (formula.operand1){
       formula.operand2 = display.textContent;
       formula.result = 
@@ -115,7 +117,7 @@ keys.addEventListener('click', (e) => {
   }
 
   // -/+ key
-  if (target.className === 'neg') {
+  if (target.className === 'neg' && !isNaN(display.textContent)) {
     display.textContent = `${-Number(display.textContent)}`
   }
 
