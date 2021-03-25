@@ -48,7 +48,7 @@ keys.addEventListener('click', (e) => {
   //number keys
   if (target.className === 'number') {
     if (display.textContent === '0' || isNaN(display.textContent)
-        || display.textContent === String(formula.result)) {
+      || display.textContent === String(formula.result)) {
       //new number
       display.textContent = target.dataset.value;
     } else {
@@ -74,20 +74,22 @@ keys.addEventListener('click', (e) => {
         Number(formula.operand2));
 
         display.textContent = String(formula.result);
-
         formula.operand1 = formula.result;
         
       } else if (formula.operand1){
       formula.operand2 = display.textContent;
-      display.textContent = String(target.textContent);
+      formula.result = 
+        //work out fomula display it and store result
+        operate(Number(formula.operand1), formula.operator, 
+        Number(formula.operand2));
+
+        display.textContent = String(formula.result);
+        formula.operand1 = formula.result;
 
     } else if (formula.operand1 === null) {
         formula.operand1 = display.textContent;
         display.textContent = String(target.textContent);
-    }
-
-    // multiple operators scenario
-    
+    } 
     
     //add operator
     formula.operator = target.dataset.value;
