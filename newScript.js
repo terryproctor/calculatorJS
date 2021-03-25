@@ -122,7 +122,8 @@ keys.addEventListener('click', (e) => {
   }
 
   //DEL key
-  if (target.dataset.value === 'clear' && display.textContent !== String(formula.result)) {
+  if (target.dataset.value === 'clear' && display.textContent !== String(formula.result)
+  && !isNaN(display.textContent)) {
     display.textContent =  display.textContent.slice(0, -1);
   if (display.textContent === '-') {display.textContent = ''};
   }
