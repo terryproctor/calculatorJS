@@ -66,15 +66,6 @@ keys.addEventListener('click', (e) => {
 
   //  +, -, / and *
   if (target.className === "operator") {
-    if (formula.operand1 === null) {
-      formula.operand1 = display.textContent;
-      display.textContent = String(target.textContent);
-    } else if (formula.operand1){
-      formula.operand2 = display.textContent;
-      display.textContent = String(target.textContent);
-    } 
-    
-    // multiple operators scenario
     if (formula.operand1 && formula.operator && formula.operand2)
       { 
         formula.result = 
@@ -85,7 +76,18 @@ keys.addEventListener('click', (e) => {
         display.textContent = String(formula.result);
 
         formula.operand1 = formula.result;
-      }
+        
+      } else if (formula.operand1){
+      formula.operand2 = display.textContent;
+      display.textContent = String(target.textContent);
+
+    } else if (formula.operand1 === null) {
+        formula.operand1 = display.textContent;
+        display.textContent = String(target.textContent);
+    }
+
+    // multiple operators scenario
+    
     
     //add operator
     formula.operator = target.dataset.value;
