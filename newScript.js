@@ -41,9 +41,6 @@ let formula = {
 
 keys.addEventListener('click', (e) => {
   const target = e.target;
-  let input = "";
-
-  //console.log(target.className)
 
   //number keys
   if (target.className === 'number') {
@@ -55,19 +52,20 @@ keys.addEventListener('click', (e) => {
       //append display
       display.textContent += target.dataset.value;
     }
-    console.log(input)
   };
 
   //only add 1 decimal
   if ((target.className === 'decimal') && 
-  (!display.textContent.includes('.'))) {
+  (!display.textContent.includes('.')) && !isNaN(display.textContent)) {
     display.textContent += '.';
   }
 
   //  +, -, / and *
   if (target.className === "operator") {
-    if (formula.operand1 && formula.operator && formula.operand2)
+    if (formula.operand1 && formula.operator && !isNaN(display.textContent))
       { 
+        formula.operand2 = display.textContent;
+        
         formula.result = 
         //work out fomula display it and store result
         operate(Number(formula.operand1), formula.operator, 
@@ -75,26 +73,21 @@ keys.addEventListener('click', (e) => {
 
         display.textContent = String(formula.result);
         formula.operand1 = formula.result;
+        formula.operand2 = null;
         
-      } else if (formula.operand1 && formula.operator) {
-        display.textContent = String(target.textContent)
-      } else if (formula.operand1){
-      formula.operand2 = display.textContent;
-      formula.result = 
-        //work out fomula display it and store result
-        operate(Number(formula.operand1), formula.operator, 
-        Number(formula.operand2));
-
-        display.textContent = String(formula.result);
-        formula.operand1 = formula.result;
-
-    } else if (formula.operand1 === null) {
+      }  else if (formula.operand1){
+        formula.operand2 = display.textContent;
+        display.textContent = target.textContent;
+        
+      } else if (!formula.operand1) {
         formula.operand1 = display.textContent;
         display.textContent = String(target.textContent);
+        ;
     } 
     
     //add operator
     formula.operator = target.dataset.value;
+    //formula.operator = target.dataset.value;
     console.log(formula);
   }
 
@@ -133,11 +126,9 @@ keys.addEventListener('click', (e) => {
     display.textContent =  "0";
     //set all keys in formula to null (reset)
     Object.keys(formula).forEach(key => formula[key] = null);
-    };
-  
-
+    };  
 });
 
 //need to add exp functionality
 
-//still float round errors for floating formulas
+//still float round errors for floating formulas (more testing needed)
