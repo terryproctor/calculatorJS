@@ -87,8 +87,7 @@ keys.addEventListener('click', (e) => {
     
     //add operator
     formula.operator = target.dataset.value;
-    //formula.operator = target.dataset.value;
-    console.log(formula);
+    
   }
 
   if(target.className === "equal") {
